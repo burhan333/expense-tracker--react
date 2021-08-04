@@ -1,4 +1,9 @@
 import React, {useState} from 'react';
+import Header from './header';
+import Balance from './balance';
+import Transaction from './transaction';
+import IncomExpense from './incomExpense';
+import AddTransaction from './addTransaction';
 
 const Main = () => {
     const [values, setValues] = useState({})
@@ -35,35 +40,23 @@ const Main = () => {
 
     return (
         <React.Fragment>
-            <h1>Expense Tracker</h1>
-            <h3>Your Balance</h3>
-            <h1>${balance}</h1>
-            <h3>income</h3>
-            <h3>{income}</h3>
-            <h3>expense</h3>
-            <h3>{expense}</h3>
-            <div className="history">
-                <h3>History</h3>
-                <ul>
-                    {list.map((item, index) => {
-                        return <li className={item.amount < 0 ? 'minus' : 'plus'}
-                                    key={index}>
-                                    <span onClick={() => handleDelete(index)}>x</span>
-                                    <span>{item.text}</span>                                    
-                                    <span>{item.amount > 0 ? '+' : '-'}{Math.abs(item.amount)}</span>
-                                </li>
-                    })}
-                </ul>
-            </div>
-            <div className="Text">
-                <p>text</p>
-                <input onChange={(e) => handleChange(e, 'text')} type="text" />
-            </div>
-            <div className="Text">
-                <p>Amount</p>
-                <input onChange={(e) => handleChange(e, 'amount')} type="number" />
-            </div>
-            <button onClick={handleValue}>add transaction</button>
+            <Header/>
+            <Balance
+                balance={balance}
+            />
+            <IncomExpense
+                income={income}
+                expense={expense}
+            />
+            <Transaction
+                list={list}
+                handleDelete={handleDelete}
+             />
+             <AddTransaction
+                handleChange={handleChange}
+                handleDelete={handleDelete}
+                handleValue={handleValue}
+             />
         </React.Fragment>
     )
 }
