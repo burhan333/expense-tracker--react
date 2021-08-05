@@ -3,8 +3,8 @@ import React from 'react'
 const Balance = (props) => {
     return (
         <React.Fragment>
-            <h3>Your Balance</h3>
-            <h1>${props.Balance}</h1>
+            <h4>Your Balance</h4>
+            <h1>${props.balance}</h1>
         </React.Fragment>
     )
 }

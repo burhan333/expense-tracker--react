@@ -5,11 +5,11 @@ const Transaction = ({list, handleDelete}) => {
         <React.Fragment>
             <div className="history">
                 <h3>History</h3>
-                <ul>
+                <ul className="list">
                     {list.map((item, index) => {
                         return <li className={item.amount < 0 ? 'minus' : 'plus'}
                                     key={index}>
-                                    <span onClick={() => handleDelete(index)}>x</span>
+                                    <span onClick={() => handleDelete(index)} className="delete-btn">x</span>
                                     <span>{item.text}</span>                                    
                                     <span>{item.amount > 0 ? '+' : '-'}{Math.abs(item.amount)}</span>
                                 </li>
