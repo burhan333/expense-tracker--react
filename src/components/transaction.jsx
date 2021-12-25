@@ -11,7 +11,7 @@ const Transaction = ({list, handleDelete}) => {
                                     key={index}>
                                     <span onClick={() => handleDelete(index)} className="delete-btn">x</span>
                                     <span>{item.text}</span>                                    
-                                    <span>{item.amount > 0 ? '+' : '-'}{Math.abs(item.amount)}</span>
+                                    <span>{item.amount > -1 ? '+' : '-'}{Math.abs(item.amount)}</span>
                                 </li>
                     })}
                 </ul>
